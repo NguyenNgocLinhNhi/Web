@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Web\\Lab2\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|d:\\web\\lab2\\lab2\\lab2.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|solutionrelative:lab2\\lab2.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Lab2",
+              "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Lab2.csproj",
+              "RelativeDocumentMoniker": "Lab2\\Lab2.csproj",
+              "ToolTip": "D:\\Web\\Lab2\\Lab2\\Lab2.csproj",
+              "RelativeToolTip": "Lab2\\Lab2.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-04T09:30:37.068Z",
+              "EditorCaption": ""
             }
           ]
         }
