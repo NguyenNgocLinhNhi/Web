@@ -20,5 +20,10 @@ namespace Lab2.Models
         // Cấu hình kiểu dữ liệu chính xác cho cột Price trong SQL Server
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
+
+        [Required]
+        [StringLength(5)]
+        [RegularExpression(@"^\d+$", ErrorMessage = "Rating chỉ được phép nhập số.")]
+        public string? Rating { get; set; }
     }
 }

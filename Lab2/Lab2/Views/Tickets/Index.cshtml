@@ -1,0 +1,58 @@
+﻿@model Lab2.Models.TicketViewModel
+
+@{
+    ViewData["Title"] = "Tickets Index";
+}
+
+<h1>Tickets Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Ticket</a>
+</p>
+
+<form asp-controller="Tickets" asp-action="Index" method="get">
+    <p>
+        Category:
+        <select asp-for="SelectedCategoryId" asp-items="Model.Categories">
+            <option value="">All Categories</option>
+        </select>
+
+        Subject:
+        <input type="text" asp-for="SearchString" />
+
+        <input type="submit" value="Filter" class="btn btn-sm btn-secondary" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Tickets![0].Subject)</th>
+            <th>@Html.DisplayNameFor(model => model.Tickets![0].Customer!.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Tickets![0].Category!.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Tickets![0].Status)</th>
+            <th>@Html.DisplayNameFor(model => model.Tickets![0].CreatedDate)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Tickets != null)
+        {
+            @foreach (var item in Model.Tickets)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Subject)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Customer!.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Category!.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Status)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

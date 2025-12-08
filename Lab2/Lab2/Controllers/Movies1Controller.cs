@@ -20,9 +20,41 @@ namespace Lab2.Controllers
         }
 
         // GET: Movies1
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string movieGenre, string searchString)
         {
-            return View(await _context.Movie.ToListAsync());
+            // 1. Lấy tất cả Genres (Thể loại) duy nhất từ DB
+            IQueryable<string> genreQuery = from m in _context.Movie
+                                            orderby m.Genre
+                                            select m.Genre;
+
+            // 2. Tạo query lấy tất cả Movies
+            var movies = from m in _context.Movie
+                         select m;
+
+            // 3. Lọc theo SearchString (tiêu đề phim)
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                // s.Title.Contains(searchString) được chuyển thành SQL LIKE trên DB
+                movies = movies.Where(s => s.Title!.Contains(searchString));
+            }
+
+            // 4. Lọc theo MovieGenre (thể loại)
+            if (!string.IsNullOrEmpty(movieGenre))
+            {
+                movies = movies.Where(x => x.Genre == movieGenre);
+            }
+
+            // 5. Tạo ViewModel và trả về View
+            var movieGenreVM = new MovieGenreViewModel
+            {
+                // Lấy danh sách Genres duy nhất
+                Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
+
+                // Thực thi query lấy danh sách phim
+                Movies = await movies.ToListAsync()
+            };
+
+            return View(movieGenreVM);
         }
 
         // GET: Movies1/Details/5
@@ -54,7 +86,7 @@ namespace Lab2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +118,7 @@ namespace Lab2.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
         {
             if (id != movie.Id)
             {
