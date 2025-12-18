@@ -59,10 +59,6 @@
       "RelativeMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|solutionrelative:lab2\\models\\ticketviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Web\\Lab2\\Lab2\\Migrations\\20251208095630_AddCustomerTicketSchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Lab2\\Migrations\\20251208095630_AddCustomerTicketSchema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|d:\\web\\lab2\\lab2\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|solutionrelative:lab2\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -129,6 +125,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|d:\\web\\lab2\\lab2\\lab2.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|solutionrelative:lab2\\lab2.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|d:\\web\\lab2\\lab2\\migrations\\20251208095630_addcustomerticketschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3F193CD-34AF-4AB7-8465-25FBC7B1580E}|Lab2\\Lab2.csproj|solutionrelative:lab2\\migrations\\20251208095630_addcustomerticketschema.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -152,7 +152,7 @@
               "RelativeDocumentMoniker": "Lab2\\obj\\Debug\\net8.0\\Lab2.AssemblyInfo.cs",
               "ToolTip": "D:\\Web\\Lab2\\Lab2\\obj\\Debug\\net8.0\\Lab2.AssemblyInfo.cs",
               "RelativeToolTip": "Lab2\\obj\\Debug\\net8.0\\Lab2.AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T10:30:32.533Z",
               "EditorCaption": ""
@@ -167,12 +167,11 @@
               "RelativeToolTip": "Lab2\\Views\\Tickets\\Create.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAiwEIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T10:03:23.48Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T10:03:23.48Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 31,
               "Title": "20251208095630_AddCustomerTicketSchema.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Migrations\\20251208095630_AddCustomerTicketSchema.cs",
               "RelativeDocumentMoniker": "Lab2\\Migrations\\20251208095630_AddCustomerTicketSchema.cs",
@@ -180,8 +179,7 @@
               "RelativeToolTip": "Lab2\\Migrations\\20251208095630_AddCustomerTicketSchema.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:56:30.325Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:56:30.325Z"
             },
             {
               "$type": "Document",
@@ -193,8 +191,7 @@
               "RelativeToolTip": "Lab2\\Controllers\\TicketsController.cs",
               "ViewState": "AgIAALcAAAAAAAAAAAAiwNMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:55:41.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:55:41.467Z"
             },
             {
               "$type": "Document",
@@ -206,8 +203,7 @@
               "RelativeToolTip": "Lab2\\Models\\SeedData.cs",
               "ViewState": "AgIAAH8AAAAAAAAAAAAgwJoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T10:29:13.937Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:29:13.937Z"
             },
             {
               "$type": "Document",
@@ -219,8 +215,7 @@
               "RelativeToolTip": "Lab2\\Models\\ErrorViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:19:24.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:19:24.792Z"
             },
             {
               "$type": "Document",
@@ -232,8 +227,7 @@
               "RelativeToolTip": "Lab2\\Models\\Movie.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T09:43:16.22Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T09:43:16.22Z"
             },
             {
               "$type": "Document",
@@ -245,8 +239,7 @@
               "RelativeToolTip": "Lab2\\Views\\Tickets\\Edit.cshtml",
               "ViewState": "AgIAACIAAAAAAAAAAAAiwEAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T10:03:33.993Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T10:03:33.993Z"
             },
             {
               "$type": "Document",
@@ -258,8 +251,7 @@
               "RelativeToolTip": "Lab2\\Migrations\\Lab2ContextModelSnapshot.cs",
               "ViewState": "AgIAAFUAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T10:05:37.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T10:05:37.766Z"
             },
             {
               "$type": "Document",
@@ -271,8 +263,7 @@
               "RelativeToolTip": "Lab2\\Views\\Tickets\\Details.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAiwCIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T10:03:41.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T10:03:41.866Z"
             },
             {
               "$type": "Document",
@@ -284,8 +275,7 @@
               "RelativeToolTip": "Lab2\\Models\\TicketViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:56:59.844Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:56:59.844Z"
             },
             {
               "$type": "Document",
@@ -297,8 +287,7 @@
               "RelativeToolTip": "Lab2\\Data\\Lab2Context.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:52:56.467Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:52:56.467Z"
             },
             {
               "$type": "Document",
@@ -310,8 +299,7 @@
               "RelativeToolTip": "Lab2\\Views\\Tickets\\Delete.cshtml",
               "ViewState": "AgIAAAIAAAAAAAAAAAAiwBAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T10:03:48.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T10:03:48.219Z"
             },
             {
               "$type": "Document",
@@ -323,12 +311,11 @@
               "RelativeToolTip": "Lab2\\Views\\Tickets\\Index.cshtml",
               "ViewState": "AgIAAB0AAAAAAAAAAAAiwDkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:57:40.566Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:57:40.566Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "CategoriesController.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Controllers\\CategoriesController.cs",
               "RelativeDocumentMoniker": "Lab2\\Controllers\\CategoriesController.cs",
@@ -336,8 +323,7 @@
               "RelativeToolTip": "Lab2\\Controllers\\CategoriesController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:55:06.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:55:06.965Z"
             },
             {
               "$type": "Document",
@@ -349,12 +335,11 @@
               "RelativeToolTip": "Lab2\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAB8AAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-04T10:26:12.472Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:26:12.472Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "CustomersController.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Controllers\\CustomersController.cs",
               "RelativeDocumentMoniker": "Lab2\\Controllers\\CustomersController.cs",
@@ -362,12 +347,11 @@
               "RelativeToolTip": "Lab2\\Controllers\\CustomersController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:54:30.465Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:54:30.465Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "Ticket.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Models\\Ticket.cs",
               "RelativeDocumentMoniker": "Lab2\\Models\\Ticket.cs",
@@ -375,12 +359,11 @@
               "RelativeToolTip": "Lab2\\Models\\Ticket.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:52:24.043Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:52:24.043Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "Category.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Lab2\\Models\\Category.cs",
@@ -388,12 +371,11 @@
               "RelativeToolTip": "Lab2\\Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:52:01.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:52:01.814Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 18,
               "Title": "Customer.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "Lab2\\Models\\Customer.cs",
@@ -401,12 +383,11 @@
               "RelativeToolTip": "Lab2\\Models\\Customer.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:51:36.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:51:36.251Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 19,
               "Title": "20251208094723_Rating.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Migrations\\20251208094723_Rating.cs",
               "RelativeDocumentMoniker": "Lab2\\Migrations\\20251208094723_Rating.cs",
@@ -414,12 +395,11 @@
               "RelativeToolTip": "Lab2\\Migrations\\20251208094723_Rating.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:47:23.928Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:47:23.928Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 20,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Views\\Movies1\\Delete.cshtml",
               "RelativeDocumentMoniker": "Lab2\\Views\\Movies1\\Delete.cshtml",
@@ -427,12 +407,11 @@
               "RelativeToolTip": "Lab2\\Views\\Movies1\\Delete.cshtml",
               "ViewState": "AgIAABkAAAAAAAAAAAAwwDIAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:46:55.411Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:46:55.411Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 21,
               "Title": "Details.cshtml",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Views\\Movies1\\Details.cshtml",
               "RelativeDocumentMoniker": "Lab2\\Views\\Movies1\\Details.cshtml",
@@ -440,12 +419,11 @@
               "RelativeToolTip": "Lab2\\Views\\Movies1\\Details.cshtml",
               "ViewState": "AgIAABAAAAAAAAAAAAAAAC8AAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:46:47.404Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:46:47.404Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 22,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Views\\Movies1\\Edit.cshtml",
               "RelativeDocumentMoniker": "Lab2\\Views\\Movies1\\Edit.cshtml",
@@ -453,12 +431,11 @@
               "RelativeToolTip": "Lab2\\Views\\Movies1\\Edit.cshtml",
               "ViewState": "AgIAABwAAAAAAAAAAAAAAD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:46:39.584Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:46:39.584Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 23,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Views\\Movies1\\Create.cshtml",
               "RelativeDocumentMoniker": "Lab2\\Views\\Movies1\\Create.cshtml",
@@ -466,12 +443,11 @@
               "RelativeToolTip": "Lab2\\Views\\Movies1\\Create.cshtml",
               "ViewState": "AgIAACQAAAAAAAAAAAAAADwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:45:51.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:45:51.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "MovieGenreViewModel.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Models\\MovieGenreViewModel.cs",
               "RelativeDocumentMoniker": "Lab2\\Models\\MovieGenreViewModel.cs",
@@ -479,12 +455,11 @@
               "RelativeToolTip": "Lab2\\Models\\MovieGenreViewModel.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T09:35:12.175Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:35:12.175Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 24,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Views\\Movies1\\Index.cshtml",
               "RelativeDocumentMoniker": "Lab2\\Views\\Movies1\\Index.cshtml",
@@ -492,12 +467,11 @@
               "RelativeToolTip": "Lab2\\Views\\Movies1\\Index.cshtml",
               "ViewState": "AgIAABcAAAAAAAAAAAAAADYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-08T09:16:23.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T09:16:23.778Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 28,
               "Title": "20251204102443_InitialCreate.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Migrations\\20251204102443_InitialCreate.cs",
               "RelativeDocumentMoniker": "Lab2\\Migrations\\20251204102443_InitialCreate.cs",
@@ -505,12 +479,11 @@
               "RelativeToolTip": "Lab2\\Migrations\\20251204102443_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T10:24:44.153Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:24:44.153Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "Movies1Controller.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Controllers\\Movies1Controller.cs",
               "RelativeDocumentMoniker": "Lab2\\Controllers\\Movies1Controller.cs",
@@ -518,12 +491,11 @@
               "RelativeToolTip": "Lab2\\Controllers\\Movies1Controller.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAFgAAABgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T10:18:35.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:18:35.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 27,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Program.cs",
               "RelativeDocumentMoniker": "Lab2\\Program.cs",
@@ -531,12 +503,11 @@
               "RelativeToolTip": "Lab2\\Program.cs",
               "ViewState": "AgIAACUAAAAAAAAAAADwvz4AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T10:31:04.822Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:31:04.822Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 29,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Lab2\\Controllers\\HomeController.cs",
@@ -544,20 +515,18 @@
               "RelativeToolTip": "Lab2\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T10:01:28.692Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T10:01:28.692Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 30,
               "Title": "Lab2",
               "DocumentMoniker": "D:\\Web\\Lab2\\Lab2\\Lab2.csproj",
               "RelativeDocumentMoniker": "Lab2\\Lab2.csproj",
               "ToolTip": "D:\\Web\\Lab2\\Lab2\\Lab2.csproj",
               "RelativeToolTip": "Lab2\\Lab2.csproj",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-12-04T09:30:37.068Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T09:30:37.068Z"
             }
           ]
         }

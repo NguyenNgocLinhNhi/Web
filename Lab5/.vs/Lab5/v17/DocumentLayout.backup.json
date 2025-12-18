@@ -1,0 +1,209 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Web\\Lab5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\controllers\\todoitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\controllers\\todoitemscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\lab5.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\lab5.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\models\\tododb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\models\\tododb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\models\\lab5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\models\\lab5.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\models\\todoitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\models\\todoitemdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\models\\todo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|d:\\web\\lab5\\lab5\\lab5.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{2509090B-5B31-495E-8A20-700F1D3DD5D4}|Lab5\\Lab5.csproj|solutionrelative:lab5\\lab5.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TodoItemsController.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Controllers\\TodoItemsController.cs",
+              "RelativeDocumentMoniker": "Lab5\\Controllers\\TodoItemsController.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Controllers\\TodoItemsController.cs",
+              "RelativeToolTip": "Lab5\\Controllers\\TodoItemsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:46:54.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lab5",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Lab5.csproj",
+              "RelativeDocumentMoniker": "Lab5\\Lab5.csproj",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Lab5.csproj",
+              "RelativeToolTip": "Lab5\\Lab5.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-11T10:33:36.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Todo.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Models\\Todo.cs",
+              "RelativeDocumentMoniker": "Lab5\\Models\\Todo.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Models\\Todo.cs",
+              "RelativeToolTip": "Lab5\\Models\\Todo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:23:07.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TodoDB.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Models\\TodoDB.cs",
+              "RelativeDocumentMoniker": "Lab5\\Models\\TodoDB.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Models\\TodoDB.cs",
+              "RelativeToolTip": "Lab5\\Models\\TodoDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:16:17.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Lab5.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Models\\Lab5.cs",
+              "RelativeDocumentMoniker": "Lab5\\Models\\Lab5.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Models\\Lab5.cs",
+              "RelativeToolTip": "Lab5\\Models\\Lab5.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:15:45.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Lab5\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Lab5\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-11T10:13:43.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Lab5",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Lab5.csproj",
+              "RelativeDocumentMoniker": "Lab5\\Lab5.csproj",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Lab5.csproj",
+              "RelativeToolTip": "Lab5\\Lab5.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-11T10:13:39.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Program.cs",
+              "RelativeDocumentMoniker": "Lab5\\Program.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Program.cs",
+              "RelativeToolTip": "Lab5\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T09:55:49.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Lab5\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Lab5\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T09:55:24.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TodoItemDTO.cs",
+              "DocumentMoniker": "D:\\Web\\Lab5\\Lab5\\Models\\TodoItemDTO.cs",
+              "RelativeDocumentMoniker": "Lab5\\Models\\TodoItemDTO.cs",
+              "ToolTip": "D:\\Web\\Lab5\\Lab5\\Models\\TodoItemDTO.cs",
+              "RelativeToolTip": "Lab5\\Models\\TodoItemDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:24:16.03Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
