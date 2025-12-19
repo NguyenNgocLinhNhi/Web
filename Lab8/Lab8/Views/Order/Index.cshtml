@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Lab8.Models.Order>
+
+<h1 class="mt-4">Quản lý Đơn Hàng</h1>
+<div class="card mb-4 shadow">
+    <div class="card-header bg-dark text-white d-flex justify-content-between">
+        <span><i class="fas fa-shopping-cart me-1"></i> Lịch sử giao dịch</span>
+        <a asp-action="Create" class="btn btn-primary btn-sm">Lập đơn hàng mới</a>
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Mã Đơn</th>
+                    <th>Ngày Lập</th>
+                    <th>Khách Hàng</th>
+                    <th>Tổng Tiền</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>ORD-@item.Id.ToString("D4")</td>
+                        <td>@item.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                        <td>@item.Customer?.Name</td>
+                        <td class="text-danger fw-bold">
+                            @if (item.TotalAmount > 0)
+                            {
+                                @item.TotalAmount.ToString("#,##0")
+                            }
+                            else
+                            {
+                                @* Nếu TotalAmount trong DB vẫn là 0, ta tính tổng từ danh sách chi tiết *@
+                                @item.OrderDetails.Sum(d => d.Price * d.Quantity).ToString("#,##0")
+                            }
+                            VNĐ
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm text-white"><i class="fas fa-eye"></i> Chi tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model Lab8.Models.Customer
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Thêm Khách Hàng</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Name" class="fw-bold">Họ tên</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Phone" class="fw-bold">Số điện thoại</label>
+                        @* Nếu bạn không đổi Model ở bước 1, hãy đổi asp-for thành "PhoneNumber" *@
+                        <input asp-for="Phone" class="form-control" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Address" class="fw-bold">Địa chỉ</label>
+                        <textarea asp-for="Address" class="form-control" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-primary px-4">Lưu khách hàng</button>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

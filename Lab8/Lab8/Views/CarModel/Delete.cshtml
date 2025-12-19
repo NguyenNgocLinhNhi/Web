@@ -1,0 +1,33 @@
+﻿@model Lab8.Models.CarModel
+
+@{
+    ViewData["Title"] = "Xác nhận xóa";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-danger">Xác nhận xóa</h1>
+    <div class="card shadow mb-4 border-left-danger">
+        <div class="card-body">
+            <h4 class="text-warning"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa dòng xe này?</h4>
+            <hr />
+            <dl class="row h5">
+                <dt class="col-sm-3 text-muted">Tên dòng xe:</dt>
+                <dd class="col-sm-9 fw-bold">@Model.Name</dd>
+
+                <dt class="col-sm-3 text-muted">Hãng sản xuất:</dt>
+                <dd class="col-sm-9">@(Model.Brand?.Name ?? "N/A")</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                @* Phải có Id ẩn để gửi về hàm DeleteConfirmed *@
+                <input type="hidden" asp-for="Id" />
+
+                <button type="submit" class="btn btn-danger btn-lg px-4 shadow">
+                    <i class="fas fa-trash-alt me-1"></i> Xác nhận xóa
+                </button>
+
+                <a asp-action="Index" class="btn btn-secondary btn-lg px-4 ms-2">Hủy bỏ</a>
+            </form>
+        </div>
+    </div>
+</div>

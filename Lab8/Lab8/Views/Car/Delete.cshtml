@@ -1,0 +1,24 @@
+﻿@model Lab8.Models.Car
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-danger">Xác nhận xóa xe</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h5 class="text-secondary">Bạn có chắc chắn muốn xóa xe này khỏi hệ thống?</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3">Tên xe:</dt>
+                <dd class="col-sm-9">@Model.Name</dd>
+
+                <dt class="col-sm-3">Giá bán:</dt>
+                <dd class="col-sm-9 text-success fw-bold">@((Model.Price ?? 0).ToString("#,##0")) VNĐ</dd>
+            </dl>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger px-4">XÁC NHẬN XÓA</button>
+                <a asp-action="Index" class="btn btn-secondary ms-2">HỦY BỎ</a>
+            </form>
+        </div>
+    </div>
+</div>

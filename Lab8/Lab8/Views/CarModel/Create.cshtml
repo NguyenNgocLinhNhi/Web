@@ -1,0 +1,45 @@
+﻿@model Lab8.Models.CarModel
+
+@{
+    ViewData["Title"] = (Model == null || Model.Id == 0) ? "Thêm Dòng Xe" : "Cập nhật Dòng Xe";
+}
+
+<h1 class="mt-4 text-uppercase fw-bold">@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4 shadow">
+            <div class="card-header fw-bold bg-light">Thông tin chi tiết</div>
+            <div class="card-body">
+                <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    @if (Model != null && Model.Id != 0)
+                    {
+                        <input type="hidden" asp-for="Id" />
+                    }
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Tên Dòng Xe</label>
+                        <input name="Name" class="form-control" value="@(Model?.Name)" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="fw-bold">Hãng Sản Xuất</label>
+                        <select name="BrandId" class="form-select" asp-items="ViewBag.BrandId" required>
+                            <option value="">-- Chọn hãng xe --</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-success px-4">Lưu ngay</button>
+                    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

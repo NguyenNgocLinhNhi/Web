@@ -1,0 +1,65 @@
+﻿@model Lab8.Models.Car
+
+@{
+    ViewData["Title"] = (Model == null || Model.Id == 0) ? "Thêm Xe Mới" : "Cập nhật Xe";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">@ViewData["Title"]</h1>
+    
+    <div class="card shadow mb-4 border-left-primary">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-primary font-italic">
+                Nhập thông tin xe (Lưu ý: Không nhập ký tự lạ vào giá tiền)
+            </h6>
+        </div>
+        <div class="card-body">
+            @* Sử dụng asp-action linh hoạt cho cả Thêm và Sửa *@
+            <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post">
+                
+                @* Cần Id ẩn để khi Sửa (Update) hệ thống biết xe nào *@
+                @if (Model != null && Model.Id > 0)
+                {
+                    <input type="hidden" name="Id" value="@Model.Id" />
+                }
+
+                <div class="row">
+                    @* Tên phiên bản *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Tên Phiên Bản</label>
+                        <input type="text" name="Name" class="form-control" value="@Model?.Name" required placeholder="Ví dụ: Vios G" />
+                    </div>
+
+                    @* Chọn Dòng Xe *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Dòng Xe</label>
+                        <select name="CarModelId" class="form-select" asp-items="ViewBag.CarModelId" required>
+                            <option value="">-- Chọn dòng xe --</option>
+                        </select>
+                    </div>
+
+                    @* Giá bán - Đây là nơi hay lỗi nhất nên để type="text" *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Giá Bán (VNĐ)</label>
+                        <input type="text" name="Price" class="form-control" value="@Model?.Price" placeholder="Nhập số, ví dụ: 500000000" />
+                        <small class="text-muted font-italic">Lưu ý: Chỉ nhập số, không nhập dấu chấm hoặc phẩy.</small>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary px-5 shadow">
+                        <i class="fas fa-save me-1"></i> LƯU DỮ LIỆU
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2">HỦY BỎ</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

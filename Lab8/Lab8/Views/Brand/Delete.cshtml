@@ -1,0 +1,13 @@
+﻿@model Lab8.Models.Brand
+
+<h1 class="mt-4 text-danger">Xác nhận xóa</h1>
+<div class="card border-danger mb-4 shadow">
+    <div class="card-body">
+        <p>Bạn có chắc chắn muốn xóa hãng <strong>@Model.Name</strong>? Thao tác này không thể hoàn tác.</p>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Vâng, xóa ngay</button>
+            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+        </form>
+    </div>
+</div>
