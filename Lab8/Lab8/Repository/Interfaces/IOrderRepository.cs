@@ -8,5 +8,6 @@ namespace Lab8.Repository.Interfaces
         Order? GetById(int id);
         void Add(Order order);
         void Delete(int id);
+        void Update(Order order);
     }
 }

@@ -5,22 +5,23 @@
 }
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">@ViewData["Title"]</h1>
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">@ViewData["Title"]</h1>
     
     <div class="card shadow mb-4 border-left-primary">
         <div class="card-header py-3 bg-light">
             <h6 class="m-0 font-weight-bold text-primary font-italic">
-                Nhập thông tin xe (Lưu ý: Không nhập ký tự lạ vào giá tiền)
+                <i class="fas fa-info-circle me-1"></i> Nhập thông tin xe (Lưu ý: Không nhập ký tự lạ vào giá tiền)
             </h6>
         </div>
         <div class="card-body">
-            @* Sử dụng asp-action linh hoạt cho cả Thêm và Sửa *@
-            <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post">
+            @* QUAN TRỌNG: Thêm enctype="multipart/form-data" để upload ảnh *@
+            <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post" enctype="multipart/form-data">
                 
-                @* Cần Id ẩn để khi Sửa (Update) hệ thống biết xe nào *@
                 @if (Model != null && Model.Id > 0)
                 {
                     <input type="hidden" name="Id" value="@Model.Id" />
+                    @* Giữ lại đường dẫn ảnh cũ nếu không chọn ảnh mới khi Edit *@
+                    <input type="hidden" name="ImageUrl" value="@Model.ImageUrl" />
                 }
 
                 <div class="row">
@@ -28,6 +29,7 @@
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">Tên Phiên Bản</label>
                         <input type="text" name="Name" class="form-control" value="@Model?.Name" required placeholder="Ví dụ: Vios G" />
+                        <span class="text-danger small" id="val-Name"></span>
                     </div>
 
                     @* Chọn Dòng Xe *@
@@ -38,25 +40,52 @@
                         </select>
                     </div>
 
-                    @* Giá bán - Đây là nơi hay lỗi nhất nên để type="text" *@
+                    @* Giá bán *@
                     <div class="col-md-6 mb-3">
                         <label class="form-label fw-bold">Giá Bán (VNĐ)</label>
-                        <input type="text" name="Price" class="form-control" value="@Model?.Price" placeholder="Nhập số, ví dụ: 500000000" />
-                        <small class="text-muted font-italic">Lưu ý: Chỉ nhập số, không nhập dấu chấm hoặc phẩy.</small>
+                        <input type="number" name="Price" class="form-control" value="@Model?.Price" placeholder="Ví dụ: 500000000" />
+                        <small class="text-muted font-italic">Nhập số nguyên, hệ thống sẽ tự định dạng hiển thị.</small>
+                    </div>
+
+                    @* Số lượng trong kho - MỚI CẬP NHẬT *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Số lượng tồn kho</label>
+                        <input type="number" name="StockQuantity" class="form-control" value="@(Model?.StockQuantity ?? 0)" min="0" required />
+                        <small class="text-muted font-italic">Số lượng hiện có trong bãi xe.</small>
+                    </div>
+
+                    @* Hình ảnh *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Hình ảnh xe</label>
+                        <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                        @if (!string.IsNullOrEmpty(Model?.ImageUrl))
+                        {
+                            <div class="mt-2 p-2 border rounded bg-light" style="width: fit-content;">
+                                <small class="text-info fw-bold">Ảnh hiện tại:</small><br />
+                                <img src="@Model.ImageUrl" alt="Car Image" style="width:120px; height:80px; object-fit:cover; border-radius:5px;" class="shadow-sm" />
+                            </div>
+                        }
+                    </div>
+
+                    @* Mô tả chi tiết *@
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label fw-bold">Mô tả chi tiết / Thông số kỹ thuật</label>
+                        <textarea name="Description" class="form-control" rows="5" placeholder="Nhập các trang bị nổi bật, thông số động cơ, tiêu chuẩn khí thải...">@Model?.Description</textarea>
                     </div>
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 border-top pt-3">
                     <button type="submit" class="btn btn-primary px-5 shadow">
                         <i class="fas fa-save me-1"></i> LƯU DỮ LIỆU
                     </button>
-                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2">HỦY BỎ</a>
+                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2">
+                        <i class="fas fa-arrow-left me-1"></i> HỦY BỎ
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     @{

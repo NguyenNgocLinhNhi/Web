@@ -1,39 +1,18 @@
 ﻿@model Lab8.Models.Customer
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-danger">Xác Nhận Xóa</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a asp-action="Index">Khách hàng</a></li>
-        <li class="breadcrumb-item active">Xóa</li>
-    </ol>
-
+    <h1 class="mt-4 text-danger text-uppercase fw-bold">Xác Nhận Xóa</h1>
     <div class="card shadow mb-4 border-left-danger">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">Bạn có chắc chắn muốn xóa khách hàng này?</h6>
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-danger"><i class="fas fa-exclamation-triangle me-1"></i> Cảnh báo: Hành động này không thể hoàn tác</h6>
         </div>
-        <div class="card-body">
-            <div class="row mb-3">
-                <div class="col-sm-3 fw-bold">Họ và Tên:</div>
-                <div class="col-sm-9">@Model.Name</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-3 fw-bold">Số điện thoại:</div>
-                <div class="col-sm-9">@Model.Phone</div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-3 fw-bold">Địa chỉ:</div>
-                <div class="col-sm-9">@Model.Address</div>
-            </div>
-
+        <div class="card-body py-4">
+            <p class="fs-5">Bạn có chắc chắn muốn xóa khách hàng <strong>@Model.Name</strong> khỏi hệ thống?</p>
             <hr />
             <form asp-action="Delete" method="post">
-                @* Cần truyền ID ẩn để Controller biết xóa ai *@
                 <input type="hidden" asp-for="Id" />
-
-                <button type="submit" class="btn btn-danger px-4 shadow">
-                    <i class="fas fa-trash-alt me-1"></i> XÁC NHẬN XÓA
-                </button>
-                <a asp-action="Index" class="btn btn-secondary px-4 ms-2">HỦY BỎ</a>
+                <button type="submit" class="btn btn-danger btn-lg px-5 shadow">XÁC NHẬN XÓA NGAY</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg px-4 ms-2 shadow">HỦY BỎ</a>
             </form>
         </div>
     </div>

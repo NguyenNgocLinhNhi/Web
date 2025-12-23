@@ -1,36 +1,92 @@
 ﻿@model Lab8.Models.Car
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Cập nhật thông tin xe</h1>
-    <div class="card shadow mb-4">
+    <h1 class="mt-4 text-uppercase fw-bold text-warning">Cập nhật thông tin xe</h1>
+    
+    <div class="card shadow mb-4 border-left-warning">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-dark">
+                <i class="fas fa-edit me-2"></i>Thay đổi chi tiết phiên bản: @Model.Name
+            </h6>
+        </div>
         <div class="card-body">
-            <form asp-action="Edit" method="post">
+            @* QUAN TRỌNG: Thêm enctype="multipart/form-data" để gửi được file ảnh *@
+            <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                @* Cần Id để xác định đối tượng cập nhật *@
                 <input type="hidden" asp-for="Id" />
+                
+                @* Lưu lại đường dẫn ảnh cũ nếu người dùng không upload ảnh mới *@
+                <input type="hidden" asp-for="ImageUrl" />
 
                 <div class="row">
+                    @* Tên phiên bản *@
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Name" class="fw-bold">Tên Phiên Bản</label>
-                        <input asp-for="Name" class="form-control" required />
+                        <label asp-for="Name" class="form-label fw-bold">Tên Phiên Bản</label>
+                        <input asp-for="Name" class="form-control" required placeholder="Ví dụ: Civic RS" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
+                    @* Chọn Dòng Xe *@
                     <div class="col-md-6 mb-3">
-                        <label asp-for="CarModelId" class="fw-bold">Dòng Xe</label>
-                        <select asp-for="CarModelId" class="form-select" asp-items="ViewBag.CarModelId">
+                        <label asp-for="CarModelId" class="form-label fw-bold">Dòng Xe</label>
+                        <select asp-for="CarModelId" class="form-select" asp-items="ViewBag.CarModelId" required>
                             <option value="">-- Chọn dòng xe --</option>
                         </select>
+                        <span asp-validation-for="CarModelId" class="text-danger"></span>
                     </div>
 
+                    @* Giá bán *@
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Price" class="form-label fw-bold">Giá Bán (VNĐ)</label>
+                        <input asp-for="Price" type="number" class="form-control" placeholder="Nhập giá tiền..." />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+
+                    @* Số lượng trong kho - MỚI THÊM *@
+                    <div class="col-md-2 mb-3">
+                        <label asp-for="StockQuantity" class="form-label fw-bold">Số lượng</label>
+                        <input asp-for="StockQuantity" type="number" class="form-control" min="0" />
+                        <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                    </div>
+
+                    @* Hình ảnh *@
                     <div class="col-md-6 mb-3">
-                        <label asp-for="Price" class="fw-bold">Giá Bán (VNĐ)</label>
-                        <input asp-for="Price" type="number" step="any" class="form-control" />
+                        <label class="form-label fw-bold">Cập nhật hình ảnh mới</label>
+                        <input type="file" name="ImageFile" class="form-control" accept="image/*" />
+                        <small class="text-muted italic">Chọn file mới nếu muốn thay đổi ảnh hiện tại.</small>
+                        
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="mt-2 border p-2 text-center bg-light rounded" style="width: fit-content;">
+                                <p class="small m-0 mb-1 fw-bold text-secondary">Ảnh hiện tại:</p>
+                                <img src="@Model.ImageUrl" alt="Current Car Image" style="max-height: 100px; border-radius: 5px;" />
+                            </div>
+                        }
+                    </div>
+
+                    @* Mô tả chi tiết *@
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="Description" class="form-label fw-bold">Mô tả chi tiết/Trang bị</label>
+                        <textarea asp-for="Description" class="form-control" rows="4" placeholder="Nhập mô tả kỹ thuật, thông số nổi bật..."></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
 
-                <div class="mt-3">
-                    <button type="submit" class="btn btn-warning px-4">CẬP NHẬT</button>
-                    <a asp-action="Index" class="btn btn-secondary">QUAY LẠI</a>
+                <div class="mt-4 border-top pt-3 text-end">
+                    <button type="submit" class="btn btn-warning px-5 fw-bold shadow-sm">
+                        <i class="fas fa-save me-1"></i> XÁC NHẬN CẬP NHẬT
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2 shadow-sm">
+                        <i class="fas fa-undo me-1"></i> HỦY BỎ
+                    </a>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -14,9 +14,19 @@ namespace Lab8.Repository.Implementations
             _context = context;
         }
 
+        // Triển khai phương thức Update
+        public void Update(Order order)
+        {
+            _context.Orders.Update(order);
+            _context.SaveChanges();
+        }
+
         public List<Order> GetAll()
         {
-            return _context.Orders.Include(o => o.Customer).ToList();
+            return _context.Orders
+                .Include(o => o.Customer)
+                .Include(o => o.OrderDetails)
+                .ToList();
         }
 
         public Order? GetById(int id)
@@ -36,19 +46,10 @@ namespace Lab8.Repository.Implementations
 
         public void Delete(int id)
         {
-            var order = _context.Orders
-                .Include(o => o.OrderDetails)
-                .FirstOrDefault(o => o.Id == id);
-
+            var order = _context.Orders.Find(id);
             if (order != null)
             {
-                // 1. Xóa các dòng chi tiết trước
-                _context.OrderDetails.RemoveRange(order.OrderDetails);
-
-                // 2. Xóa đơn hàng chính
                 _context.Orders.Remove(order);
-
-                // 3. Lưu thay đổi vào DB
                 _context.SaveChanges();
             }
         }

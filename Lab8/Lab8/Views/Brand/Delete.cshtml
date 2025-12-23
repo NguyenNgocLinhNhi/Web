@@ -1,13 +1,26 @@
 ﻿@model Lab8.Models.Brand
 
-<h1 class="mt-4 text-danger">Xác nhận xóa</h1>
-<div class="card border-danger mb-4 shadow">
-    <div class="card-body">
-        <p>Bạn có chắc chắn muốn xóa hãng <strong>@Model.Name</strong>? Thao tác này không thể hoàn tác.</p>
-        <form asp-action="Delete">
-            <input type="hidden" asp-for="Id" />
-            <button type="submit" class="btn btn-danger">Vâng, xóa ngay</button>
-            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
-        </form>
+<div class="container-fluid px-4 text-center">
+    <div class="mt-5 py-5 border rounded shadow-sm bg-white mx-auto" style="max-width: 600px;">
+        <i class="fas fa-exclamation-triangle fa-4x text-danger mb-3"></i>
+        <h2 class="text-danger fw-bold">Xác nhận xóa hãng xe?</h2>
+        <p class="text-muted">Bạn đang thực hiện xóa hãng xe: <strong>@Model.Name</strong></p>
+        
+        @if (Model.CarModels.Any())
+        {
+            <div class="alert alert-warning mx-4 text-start">
+                <strong>Lưu ý:</strong> Hãng xe này hiện đang có <b>@Model.CarModels.Count</b> dòng xe (CarModels). 
+                Bạn cần xóa các dòng xe liên quan trước khi xóa hãng này.
+            </div>
+            <a asp-action="Index" class="btn btn-secondary px-5 mt-3">QUAY LẠI</a>
+        }
+        else
+        {
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger px-5 mt-3">ĐỒNG Ý XÓA</button>
+                <a asp-action="Index" class="btn btn-secondary px-4 mt-3 ms-2">HỦY</a>
+            </form>
+        }
     </div>
 </div>

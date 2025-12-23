@@ -1,33 +1,66 @@
 ﻿@model Lab8.Models.CarModel
 
-@{
-    ViewData["Title"] = "Xác nhận xóa";
-}
-
 <div class="container-fluid px-4">
-    <h1 class="mt-4 text-danger">Xác nhận xóa</h1>
+    <h1 class="mt-4 text-uppercase fw-bold text-danger">Xác nhận xóa dòng xe</h1>
+
     <div class="card shadow mb-4 border-left-danger">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-danger">
+                <i class="fas fa-exclamation-triangle me-2"></i> Cảnh báo hệ thống
+            </h6>
+        </div>
         <div class="card-body">
-            <h4 class="text-warning"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa dòng xe này?</h4>
+            <h5 class="text-secondary mb-4">Bạn có chắc chắn muốn xóa dòng xe này?</h5>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <dl class="row">
+                        <dt class="col-sm-3 text-muted">Tên dòng xe:</dt>
+                        <dd class="col-sm-9 fw-bold text-primary">@Model.Name</dd>
+
+                        <dt class="col-sm-3 text-muted">Hãng sản xuất:</dt>
+                        <dd class="col-sm-9">
+                            <span class="badge bg-info text-dark">@Model.Brand?.Name</span>
+                        </dd>
+
+                        <dt class="col-sm-3 text-muted">Số phiên bản liên quan:</dt>
+                        <dd class="col-sm-9 text-danger fw-bold">@Model.Cars?.Count phiên bản</dd>
+
+                        <dt class="col-sm-3 text-muted">Mô tả dòng xe:</dt>
+                        <dd class="col-sm-9">
+                            <p class="small text-muted font-italic">
+                                @(string.IsNullOrEmpty(Model.ModelDescription) ? "Không có mô tả." : Model.ModelDescription)
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
             <hr />
-            <dl class="row h5">
-                <dt class="col-sm-3 text-muted">Tên dòng xe:</dt>
-                <dd class="col-sm-9 fw-bold">@Model.Name</dd>
 
-                <dt class="col-sm-3 text-muted">Hãng sản xuất:</dt>
-                <dd class="col-sm-9">@(Model.Brand?.Name ?? "N/A")</dd>
-            </dl>
-
-            <form asp-action="Delete" method="post">
-                @* Phải có Id ẩn để gửi về hàm DeleteConfirmed *@
-                <input type="hidden" asp-for="Id" />
-
-                <button type="submit" class="btn btn-danger btn-lg px-4 shadow">
-                    <i class="fas fa-trash-alt me-1"></i> Xác nhận xóa
-                </button>
-
-                <a asp-action="Index" class="btn btn-secondary btn-lg px-4 ms-2">Hủy bỏ</a>
-            </form>
+            @if (Model.Cars != null && Model.Cars.Any())
+            {
+                <div class="alert alert-warning">
+                    <i class="fas fa-ban me-2"></i> <strong>Không thể xóa:</strong> Dòng xe này đang chứa <b>@Model.Cars.Count</b> phiên bản xe. Bạn cần xóa các phiên bản xe trước khi xóa dòng xe này.
+                </div>
+                <div class="text-end">
+                    <a asp-action="Index" class="btn btn-secondary px-4 shadow-sm">Quay lại danh sách</a>
+                </div>
+            }
+            else
+            {
+                <div class="text-end">
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <button type="submit" class="btn btn-danger px-5 fw-bold shadow-sm">
+                            <i class="fas fa-trash-alt me-1"></i> XÁC NHẬN XÓA VĨNH VIỄN
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary px-4 ms-2 shadow-sm">
+                            <i class="fas fa-times me-1"></i> HỦY BỎ
+                        </a>
+                    </form>
+                </div>
+            }
         </div>
     </div>
 </div>

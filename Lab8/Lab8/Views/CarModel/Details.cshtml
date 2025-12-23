@@ -1,22 +1,41 @@
 ﻿@model Lab8.Models.CarModel
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Chi tiết dòng xe</h1>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Thông tin: @Model.Name</h6>
+    <h1 class="mt-4 text-uppercase fw-bold text-info">Chi tiết dòng xe</h1>
+    <div class="card shadow mb-4 border-left-info">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="fas fa-info-circle me-1"></i> Thông tin: @Model.Name
+            </h6>
         </div>
         <div class="card-body">
-            <dl class="row">
-                <dt class="col-sm-3">Tên dòng xe:</dt>
-                <dd class="col-sm-9">@Model.Name</dd>
+            <div class="row">
+                <div class="col-md-8">
+                    <dl class="row h5">
+                        <dt class="col-sm-4 text-muted">Tên dòng xe:</dt>
+                        <dd class="col-sm-8 fw-bold">@Model.Name</dd>
 
-                <dt class="col-sm-3">Thuộc hãng:</dt>
-                <dd class="col-sm-9">@Model.Brand?.Name (@Model.Brand?.Country)</dd>
-            </dl>
-            <div class="mt-4">
-                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Sửa</a>
-                <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                        <dt class="col-sm-4 text-muted">Hãng sản xuất:</dt>
+                        <dd class="col-sm-8 text-info">
+                            @Model.Brand?.Name (@Model.Brand?.Country)
+                        </dd>
+
+                        <dt class="col-sm-4 text-muted">Mô tả chi tiết:</dt>
+                        <dd class="col-sm-8 text-secondary fs-6 italic">
+                            @(string.IsNullOrEmpty(Model.ModelDescription) ? "Chưa có mô tả." : Model.ModelDescription)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="col-md-4 border-start text-center">
+                    <div class="p-4 bg-light rounded shadow-sm">
+                        <h6 class="fw-bold text-muted small">TỔNG SỐ PHIÊN BẢN</h6>
+                        <h2 class="display-4 fw-bold text-primary">@(Model.Cars?.Count ?? 0)</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 border-top pt-3 text-end">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning px-4 shadow-sm text-white">Sửa thông tin</a>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2 shadow-sm">Quay lại danh sách</a>
             </div>
         </div>
     </div>

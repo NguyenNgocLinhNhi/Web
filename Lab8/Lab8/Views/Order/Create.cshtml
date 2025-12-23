@@ -1,52 +1,133 @@
 ﻿@model Lab8.Models.Order
 
-<h1 class="mt-4">Lập Đơn Hàng Mới</h1>
-<form asp-action="Create" method="post">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card mb-4 shadow">
-                <div class="card-header bg-primary text-white font-weight-bold">Thông tin chung</div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Khách hàng mua xe</label>
-                        <select asp-for="CustomerId" class="form-select" asp-items="ViewBag.CustomerId">
-                            <option value="">-- Chọn khách hàng --</option>
-                        </select>
-                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+@{
+    ViewData["Title"] = "Lập Đơn Hàng Mới";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">Lập Đơn Hàng Mới</h1>
+    <ol class="breadcrumb mb-4 shadow-sm p-2 bg-light rounded">
+        <li class="breadcrumb-item"><a asp-action="Index">Quản lý đơn hàng</a></li>
+        <li class="breadcrumb-item active">Tạo đơn mới</li>
+    </ol>
+
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="row">
+            @* Cột trái: Thông tin khách hàng và Ghi chú *@
+            <div class="col-md-4">
+                <div class="card mb-4 shadow border-0 border-left-primary">
+                    <div class="card-header bg-primary text-white py-3">
+                        <h6 class="m-0 font-weight-bold"><i class="fas fa-info-circle me-2"></i>Thông tin chung</h6>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-bold">Ghi chú đơn hàng</label>
-                        <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Khách hàng mua xe</label>
+                            <select asp-for="CustomerId" class="form-select border-2" asp-items="ViewBag.CustomerId" required>
+                                <option value="">-- Chọn khách hàng --</option>
+                            </select>
+                            <span asp-validation-for="CustomerId" class="text-danger small"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Ngày lập đơn</label>
+                            <input type="text" class="form-control bg-light" value="@DateTime.Now.ToString("dd/MM/yyyy HH:mm")" readonly />
+                            <input type="hidden" asp-for="OrderDate" value="@DateTime.Now" />
+                        </div>
+
+                        <div class="mb-0">
+                            <label class="form-label fw-bold">Ghi chú đơn hàng</label>
+                            <textarea asp-for="Description" class="form-control border-2" rows="4" placeholder="Nhập ghi chú hoặc điều khoản riêng..."></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-8">
-            <div class="card mb-4 shadow">
-                <div class="card-header bg-success text-white font-weight-bold">Chọn xe bán (Đánh dấu để chọn)</div>
-                <div class="card-body">
-                    <table class="table table-sm">
-                        <thead>
-                            <tr>
-                                <th>Chọn</th>
-                                <th>Tên Xe</th>
-                                <th>Giá bán</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var car in ViewBag.Cars)
-                            {
-                                <tr>
-                                    <td><input type="checkbox" name="selectedCars" value="@car.Id" /></td>
-                                    <td>@car.Name</td>
-                                    <td>@car.Price.ToString("N0") VNĐ</td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+
+            @* Cột phải: Danh sách xe để chọn *@
+            <div class="col-md-8">
+                <div class="card mb-4 shadow border-0 border-left-success">
+                    <div class="card-header bg-success text-white py-3 d-flex justify-content-between align-items-center">
+                        <h6 class="m-0 font-weight-bold"><i class="fas fa-car me-2"></i>Chọn xe bán (Đánh dấu để chọn)</h6>
+                        <span class="badge bg-light text-success shadow-sm">Có sẵn: @ViewBag.Cars.Count xe</span>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive" style="max-height: 450px; overflow-y: auto;">
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="table-light sticky-top">
+                                    <tr class="text-center">
+                                        <th style="width: 80px;">Chọn</th>
+                                        <th class="text-start">Tên Phiên Bản Xe</th>
+                                        <th class="text-end" style="width: 200px;">Giá bán hiện tại</th>
+                                        <th class="text-center" style="width: 150px;">Số lượng kho</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var car in ViewBag.Cars)
+                                    {
+                                        <tr>
+                                            <td class="text-center">
+                                                <div class="form-check d-inline-block">
+                                                    <input type="checkbox" name="selectedCars" value="@car.Id" class="form-check-input border-primary" 
+                                                           @(car.StockQuantity <= 0 ? "disabled" : "") />
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="fw-bold text-dark">@car.Name</div>
+                                                <small class="text-muted">ID: #@car.Id</small>
+                                            </td>
+                                            <td class="text-end fw-bold text-danger">
+                                                @car.Price.ToString("N0") <small>VNĐ</small>
+                                            </td>
+                                            <td class="text-center">
+                                                @if (car.StockQuantity > 0)
+                                                {
+                                                    <span class="badge bg-success shadow-sm">@car.StockQuantity chiếc</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger shadow-sm">Hết hàng</span>
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light text-muted small italic text-center py-2">
+                        <i class="fas fa-exclamation-circle me-1"></i> Lưu ý: Tổng tiền sẽ tự động tính toán dựa trên các xe được chọn.
+                    </div>
+                </div>
+                
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg flex-grow-1 shadow fw-bold">
+                        <i class="fas fa-check-circle me-2"></i>XÁC NHẬN LẬP ĐƠN HÀNG
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary btn-lg shadow">
+                        <i class="fas fa-times me-1"></i> HỦY BỎ
+                    </a>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg w-100">XÁC NHẬN LẬP ĐƠN HÀNG</button>
         </div>
-    </div>
-</form>
+    </form>
+</div>
+
+<style>
+    /* Card trang trí đồng bộ dự án */
+    .border-left-primary { border-left: 0.25rem solid #4e73df !important; }
+    .border-left-success { border-left: 0.25rem solid #1cc88a !important; }
+    
+    /* Sticky header cho bảng xe con */
+    .sticky-top {
+        top: 0;
+        z-index: 1020;
+    }
+    
+    /* Chỉnh kích thước Checkbox cho dễ click */
+    .form-check-input {
+        width: 1.5em;
+        height: 1.5em;
+        cursor: pointer;
+    }
+</style>

@@ -1,29 +1,52 @@
 ﻿@model IEnumerable<Lab8.Models.Brand>
+
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Quản lý Hãng Xe</h1>
-    <div class="card mb-4 shadow">
-        <div class="card-header bg-primary text-white d-flex justify-content-between">
-            <span><i class="fas fa-tags me-1"></i> Danh sách hãng sản xuất</span>
-            <a asp-action="Create" class="btn btn-light btn-sm fw-bold">Thêm hãng mới</a>
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">Quản Lý Hãng Xe</h1>
+
+    <div class="card mb-4 shadow border-0">
+        <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center py-3">
+            <h6 class="m-0 font-weight-bold"><i class="fas fa-trademark me-2"></i>Danh sách các hãng xe</h6>
+            <a asp-action="Create" class="btn btn-success btn-sm fw-bold shadow-sm">
+                <i class="fas fa-plus-circle me-1"></i> Thêm hãng mới
+            </a>
         </div>
         <div class="card-body">
-            <table id="datatablesSimple" class="table table-striped table-hover">
-                <thead>
+            <table id="datatablesSimple" class="table table-hover table-bordered align-middle">
+                <thead class="table-light">
                     <tr>
-                        <th>Tên Hãng</th>
-                        <th>Quốc gia</th>
-                        <th class="text-center">Thao tác</th>
+                        <th style="width: 50px;" class="text-center">#</th>
+                        <th>Tên Hãng Xe</th>
+                        <th>Quốc Gia</th>
+                        <th>Mô Tả</th>
+                        <th class="text-center">Số Dòng Xe</th>
+                        <th style="width: 150px;" class="text-center">Thao tác</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td><strong>@item.Name</strong></td>
-                            <td>@item.Country</td>
+                            <td class="text-center">@item.Id</td>
+                            <td class="fw-bold text-primary">@item.Name</td>
+                            <td><i class="fas fa-globe-asia me-1 text-muted"></i>@item.Country</td>
+                            <td>
+                                <small class="text-muted text-truncate d-inline-block" style="max-width: 300px;">
+                                    @item.Description
+                                </small>
+                            </td>
                             <td class="text-center">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></a>
+                                <span class="badge bg-secondary">@item.CarModels.Count dòng xe</span>
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm border-0" title="Sửa">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm border-0" title="Xóa">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     }
                 </tbody>

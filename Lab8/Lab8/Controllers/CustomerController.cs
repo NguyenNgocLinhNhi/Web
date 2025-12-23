@@ -80,5 +80,14 @@ namespace Lab8.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Details(int id)
+        {
+            var customer = _customerService.GetCustomerById(id);
+            if (customer == null)
+            {
+                return NotFound();
+            }
+            return View(customer);
+        }
     }
 }

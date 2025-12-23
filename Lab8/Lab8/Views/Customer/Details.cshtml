@@ -1,0 +1,118 @@
+﻿@model Lab8.Models.Customer
+
+@{
+    ViewData["Title"] = "Chi tiết khách hàng";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">Chi tiết khách hàng</h1>
+    <div class="row">
+        @* Cột bên trái: Ảnh đại diện và thông tin cơ bản *@
+        <div class="col-lg-4">
+            <div class="card mb-4 shadow border-0 text-center py-4 border-left-primary">
+                <div class="card-body">
+                    <i class="fas fa-user-circle fa-6x text-secondary mb-3"></i>
+                    <h3 class="fw-bold">@Model.Name</h3>
+                    <p class="text-muted"><i class="fas fa-id-badge me-1"></i> Mã KH: #@Model.Id</p>
+                    <span class="badge bg-primary px-3">Khách hàng hệ thống</span>
+                </div>
+            </div>
+        </div>
+
+        @* Cột bên phải: Thông tin liên hệ *@
+        <div class="col-lg-8">
+            <div class="card mb-4 shadow border-0">
+                <div class="card-header bg-dark text-white fw-bold py-3">
+                    <i class="fas fa-id-card me-2"></i>Thông tin chi tiết liên hệ
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Số điện thoại:</dt>
+                        <dd class="col-sm-8 fw-bold text-primary">@Model.Phone</dd>
+
+                        <dt class="col-sm-4 text-muted border-top pt-2">Email:</dt>
+                        <dd class="col-sm-8 border-top pt-2">@(string.IsNullOrEmpty(Model.Email) ? "Chưa cập nhật" : Model.Email)</dd>
+
+                        <dt class="col-sm-4 text-muted border-top pt-2">Địa chỉ cư trú:</dt>
+                        <dd class="col-sm-8 border-top pt-2">@(string.IsNullOrEmpty(Model.Address) ? "N/A" : Model.Address)</dd>
+
+                        <dt class="col-sm-4 text-muted border-top pt-2">Tổng số đơn hàng:</dt>
+                        <dd class="col-sm-8 border-top pt-2">
+                            <span class="badge bg-info">@(Model.Orders?.Count ?? 0) Đơn hàng</span>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="text-end mt-3">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning px-4 shadow-sm fw-bold text-white">
+                    <i class="fas fa-edit me-1"></i> SỬA HỒ SƠ
+                </a>
+                <a asp-action="Index" class="btn btn-secondary px-4 ms-2 shadow-sm">
+                    <i class="fas fa-arrow-left me-1"></i> QUAY LẠI
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @* PHẦN MỚI: Bảng lịch sử đơn hàng của khách hàng *@
+    <div class="card mb-4 shadow border-0 mt-4">
+        <div class="card-header bg-primary text-white py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold">
+                <i class="fas fa-history me-2"></i>Lịch sử mua hàng
+            </h6>
+        </div>
+        <div class="card-body">
+            @if (Model.Orders != null && Model.Orders.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light text-center">
+                            <tr>
+                                <th>Mã Đơn</th>
+                                <th>Ngày Lập</th>
+                                <th class="text-end">Tổng Tiền (VNĐ)</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var order in Model.Orders.OrderByDescending(o => o.OrderDate))
+                            {
+                                <tr>
+                                    <td class="text-center fw-bold">ORD-@order.Id.ToString("D4")</td>
+                                    <td class="text-center">@order.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td class="text-end text-danger fw-bold">
+                                        @order.TotalAmount.ToString("N0")
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="badge bg-success shadow-sm">Hoàn tất</span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a asp-controller="Order" asp-action="Details" asp-route-id="@order.Id" 
+                                           class="btn btn-outline-info btn-sm border-0" title="Xem hóa đơn">
+                                            <i class="fas fa-file-invoice"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-4 text-muted font-italic">
+                    <i class="fas fa-shopping-basket fa-3x mb-3 text-light"></i>
+                    <p>Khách hàng này chưa có giao dịch nào trên hệ thống.</p>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Card trang trí đồng bộ dashboard */
+    .border-left-primary { border-left: 0.25rem solid #4e73df !important; }
+    /* Định dạng bảng */
+    .table-responsive { max-height: 400px; overflow-y: auto; }
+</style>

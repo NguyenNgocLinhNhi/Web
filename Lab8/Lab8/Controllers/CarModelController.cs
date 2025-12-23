@@ -16,8 +16,18 @@ namespace Lab8.Controllers
             _brandService = brandService;
         }
 
+        // GET: CarModel
         public IActionResult Index() => View(_carModelService.GetAll());
 
+        // GET: CarModel/Details/5
+        public IActionResult Details(int id)
+        {
+            var model = _carModelService.GetById(id);
+            if (model == null) return NotFound();
+            return View(model); // [cite: 14]
+        }
+
+        // GET: CarModel/Create
         public IActionResult Create()
         {
             ViewBag.BrandId = new SelectList(_brandService.GetAllBrands(), "Id", "Name");
@@ -28,32 +38,36 @@ namespace Lab8.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CarModel carModel)
         {
-            // Ép kiểu BrandId về int để chắc chắn không bị null
-            if (carModel.BrandId > 0)
+            // Loại bỏ kiểm tra lỗi cho Navigation Property để tránh lỗi ModelState không hợp lệ
+            ModelState.Remove("Brand");
+            ModelState.Remove("Cars");
+
+            if (ModelState.IsValid)
             {
                 _carModelService.Create(carModel);
-                return RedirectToAction(nameof(Index)); // Chuyển hướng ngay lập tức
+                return RedirectToAction(nameof(Index));
             }
 
-            // Nếu vẫn lỗi, nạp lại dữ liệu cho Dropdown
             ViewBag.BrandId = new SelectList(_brandService.GetAllBrands(), "Id", "Name", carModel.BrandId);
             return View(carModel);
         }
 
+        // GET: CarModel/Edit/5
         public IActionResult Edit(int id)
         {
             var model = _carModelService.GetById(id);
             if (model == null) return NotFound();
+
             ViewBag.BrandId = new SelectList(_brandService.GetAllBrands(), "Id", "Name", model.BrandId);
-            return View(model);
+            return View(model); // [cite: 24]
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(CarModel carModel)
         {
-            // Loại bỏ kiểm tra lỗi cho thuộc tính điều hướng "Brand"
             ModelState.Remove("Brand");
+            ModelState.Remove("Cars");
 
             if (ModelState.IsValid)
             {
@@ -65,23 +79,22 @@ namespace Lab8.Controllers
             return View(carModel);
         }
 
-     
-
-        // 1. GET: Hiển thị trang xác nhận xóa
+        // GET: CarModel/Delete/5
         public IActionResult Delete(int id)
         {
             var model = _carModelService.GetById(id);
             if (model == null) return NotFound();
+
             return View(model);
         }
 
-        // 2. POST: Thực hiện xóa khi người dùng nhấn nút xác nhận
-        [HttpPost, ActionName("Delete")] // Quan trọng: ActionName giúp khớp với asp-action="Delete" ở View
+        // POST: CarModel/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
             _carModelService.Delete(id);
-            return RedirectToAction(nameof(Index)); // Xóa xong tự động quay về danh sách
+            return RedirectToAction(nameof(Index));
         }
     }
 }

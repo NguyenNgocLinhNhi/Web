@@ -9,18 +9,21 @@ namespace Lab8.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên dòng xe không được để trống")]
         [MaxLength(100)]
-        public string Name { get; set; } = null!; 
+        [Display(Name = "Tên Dòng Xe")]
+        public string Name { get; set; } = null!;
 
-        // Khóa ngoại liên kết với Brand
-        [Required]
+        [Required(ErrorMessage = "Vui lòng chọn hãng xe")]
+        [Display(Name = "Hãng Xe")]
         public int BrandId { get; set; }
 
         [ForeignKey("BrandId")]
-        public Brand Brand { get; set; } = null!;
+        public virtual Brand? Brand { get; set; }
 
-        // Danh sách các xe cụ thể thuộc dòng xe này
-        public ICollection<Car> Cars { get; set; } = new List<Car>(); 
+        [Display(Name = "Mô tả dòng xe")]
+        public string? ModelDescription { get; set; } // Thuộc tính đã thêm ở các bước trước
+
+        public virtual ICollection<Car> Cars { get; set; } = new List<Car>();
     }
 }

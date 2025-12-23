@@ -8,5 +8,7 @@ namespace Lab8.Services.Interfaces
         Order? GetOrderById(int id);
         void CreateOrder(Order order);
         void DeleteOrder(int id);
+
+        void UpdateOrder(Order order); // Thêm phương thức này
     }
 }

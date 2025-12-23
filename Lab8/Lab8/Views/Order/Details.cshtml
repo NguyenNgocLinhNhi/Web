@@ -1,39 +1,125 @@
 ﻿@model Lab8.Models.Order
-<h1 class="mt-4">Chi tiết hóa đơn #@Model.Id</h1>
-<div class="card mb-4 shadow border-left-info">
-    <div class="card-header bg-info text-white">
-        <i class="fas fa-info-circle me-1"></i> Thông tin giao dịch
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-6">
-                <p><strong>Khách hàng:</strong> @Model.Customer?.Name</p>
-                <p><strong>Ngày lập:</strong> @Model.OrderDate.ToString("dd/MM/yyyy HH:mm")</p>
-            </div>
-            <div class="col-md-6 text-end">
-                <h3 class="text-danger">Tổng tiền: @Model.OrderDetails.Sum(x => x.Price).ToString("N0") VNĐ</h3>
-            </div>
+
+@{
+    ViewData["Title"] = "Chi tiết hóa đơn";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">Chi tiết hóa đơn</h1>
+    <ol class="breadcrumb mb-4 shadow-sm p-2 bg-light rounded d-print-none">
+        <li class="breadcrumb-item"><a asp-action="Index">Quản lý đơn hàng</a></li>
+        <li class="breadcrumb-item active">Hóa đơn #ORD-@Model.Id.ToString("D4")</li>
+    </ol>
+
+    <div class="card mb-4 shadow border-0 border-left-info">
+        <div class="card-header bg-info text-white py-3 d-flex justify-content-between align-items-center">
+            <h6 class="m-0 font-weight-bold">
+                <i class="fas fa-file-invoice-dollar me-2"></i>Thông tin giao dịch: #ORD-@Model.Id.ToString("D4")
+            </h6>
+            <span class="badge bg-light text-info fw-bold shadow-sm">Trạng thái: Hoàn tất</span>
         </div>
-        <table class="table table-bordered mt-3">
-            <thead class="table-light">
-                <tr>
-                    <th>Sản phẩm xe</th>
-                    <th class="text-end">Giá bán</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.OrderDetails)
-                {
-                    <tr>
-                        <td>@item.Car?.Name</td>
-                        <td class="text-end">@item.Price.ToString("N0") VNĐ</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div class="mt-3">
-            <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
-            <button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> In hóa đơn</button>
+        <div class="card-body">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5 class="text-muted text-uppercase small fw-bold">Thông tin khách hàng</h5>
+                    <div class="ps-3 border-start border-3 border-info">
+                        <p class="mb-1 fw-bold fs-5 text-dark">@Model.Customer?.Name</p>
+                        <p class="mb-1 text-muted"><i class="fas fa-phone me-1"></i> @Model.Customer?.Phone</p>
+                        <p class="mb-0 text-muted"><i class="fas fa-map-marker-alt me-1"></i> @Model.Customer?.Address</p>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                    <h5 class="text-muted text-uppercase small fw-bold">Thông tin đơn hàng</h5>
+                    <p class="mb-1"><strong>Ngày lập đơn:</strong> @Model.OrderDate.ToString("dd/MM/yyyy HH:mm")</p>
+                    <p class="mb-1 text-danger fw-bold fs-4">
+                        Tổng tiền: @Model.TotalAmount.ToString("N0") VNĐ
+                    </p>
+                </div>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Description))
+            {
+                <div class="alert alert-light border shadow-sm mb-4">
+                    <i class="fas fa-comment-dots me-2 text-primary"></i>
+                    <strong>Ghi chú:</strong> @Model.Description
+                </div>
+            }
+
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle">
+                    <thead class="table-light text-center">
+                        <tr>
+                            <th style="width: 50px;">STT</th>
+                            <th>Sản phẩm xe / Phiên bản</th>
+                            <th class="text-end" style="width: 200px;">Đơn giá</th>
+                            <th class="text-center" style="width: 100px;">Số lượng</th>
+                            <th class="text-end" style="width: 200px;">Thành tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int stt = 1; }
+                        @foreach (var item in Model.OrderDetails)
+                        {
+                            <tr>
+                                <td class="text-center">@(stt++)</td>
+                                <td>
+                                    <div class="fw-bold text-dark">@item.Car?.Name</div>
+                                    <small class="text-muted italic">Mã SKU: CAR-@item.CarId.ToString("D3")</small>
+                                </td>
+                                <td class="text-end">@item.Price.ToString("N0") <small>VNĐ</small></td>
+                                <td class="text-center">@item.Quantity</td>
+                                <td class="text-end fw-bold text-primary">
+                                    @((item.Price * item.Quantity).ToString("N0")) <small>VNĐ</small>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot class="table-light">
+                        <tr>
+                            <th colspan="4" class="text-end text-uppercase fw-bold">Tổng thanh toán:</th>
+                            <th class="text-end text-danger fw-bold fs-5">@Model.TotalAmount.ToString("N0") VNĐ</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="mt-4 d-print-none text-end">
+                <hr />
+                <a asp-action="Index" class="btn btn-secondary px-4 shadow-sm">
+                    <i class="fas fa-arrow-left me-1"></i> Quay lại danh sách
+                </a>
+                <button class="btn btn-primary px-4 ms-2 shadow-sm fw-bold" onclick="window.print()">
+                    <i class="fas fa-print me-1"></i> IN HÓA ĐƠN
+                </button>
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    /* Card trang trí */
+    .border-left-info {
+        border-left: 0.25rem solid #36b9cc !important;
+    }
+
+    /* CSS tối ưu cho việc in ấn */
+    @@media print {
+        .d-print-none {
+            display: none !important;
+        }
+        .card {
+            border: none !important;
+            shadow: none !important;
+        }
+        .container-fluid {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .card-header {
+            background-color: #f8f9fc !important;
+            color: black !important;
+            border-bottom: 2px solid #000 !important;
+        }
+    }
+</style>

@@ -1,32 +1,27 @@
 ﻿@model Lab8.Models.CarModel
 
-@{
-    ViewData["Title"] = (Model == null || Model.Id == 0) ? "Thêm Dòng Xe" : "Cập nhật Dòng Xe";
-}
-
 <div class="container-fluid px-4">
-    <h1 class="mt-4">@ViewData["Title"]</h1>
-    <div class="card shadow mb-4">
-        <div class="card-header fw-bold bg-light">
-            <i class="fas fa-edit me-1"></i> Thông tin dòng xe
+    <h1 class="mt-4 text-uppercase fw-bold text-warning">Cập nhật dòng xe</h1>
+
+    <div class="card shadow mb-4 border-left-warning">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-dark">
+                <i class="fas fa-edit me-2"></i>Thay đổi thông tin: @Model.Name
+            </h6>
         </div>
         <div class="card-body">
-            @* Tự động nhận diện Action dựa trên Model Id *@
-            <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post">
-
-                @* Hiển thị tất cả lỗi nếu có (Giúp debug nhanh) *@
-                <div asp-validation-summary="All" class="text-danger mb-3"></div>
-
-                @* CỰC KỲ QUAN TRỌNG: Id ẩn để Update hoạt động *@
+            <form asp-action="Edit" method="post">
                 <input type="hidden" asp-for="Id" />
 
                 <div class="row">
+                    @* Tên dòng xe *@
                     <div class="col-md-6 mb-3">
                         <label asp-for="Name" class="form-label fw-bold">Tên Dòng Xe</label>
-                        <input asp-for="Name" class="form-control" placeholder="Nhập tên dòng xe..." required />
+                        <input asp-for="Name" class="form-control" required placeholder="Ví dụ: Camry" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
 
+                    @* Chọn Hãng Xe *@
                     <div class="col-md-6 mb-3">
                         <label asp-for="BrandId" class="form-label fw-bold">Hãng Sản Xuất</label>
                         <select asp-for="BrandId" class="form-select" asp-items="ViewBag.BrandId" required>
@@ -34,14 +29,21 @@
                         </select>
                         <span asp-validation-for="BrandId" class="text-danger"></span>
                     </div>
+
+                    @* Mô tả dòng xe *@
+                    <div class="col-md-12 mb-3">
+                        <label asp-for="ModelDescription" class="form-label fw-bold">Mô tả dòng xe</label>
+                        <textarea asp-for="ModelDescription" class="form-control" rows="4" placeholder="Nhập mô tả dòng xe...">@Model.ModelDescription</textarea>
+                        <span asp-validation-for="ModelDescription" class="text-danger"></span>
+                    </div>
                 </div>
 
-                <div class="mt-3">
-                    <button type="submit" class="btn btn-success px-4 shadow-sm">
-                        <i class="fas fa-save me-1"></i> Lưu dữ liệu
+                <div class="mt-4 border-top pt-3 text-end">
+                    <button type="submit" class="btn btn-warning px-5 fw-bold shadow-sm">
+                        <i class="fas fa-save me-1"></i> XÁC NHẬN CẬP NHẬT
                     </button>
-                    <a asp-action="Index" class="btn btn-secondary px-4">
-                        <i class="fas fa-arrow-left me-1"></i> Hủy bỏ
+                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2 shadow-sm">
+                        <i class="fas fa-undo me-1"></i> HỦY BỎ
                     </a>
                 </div>
             </form>

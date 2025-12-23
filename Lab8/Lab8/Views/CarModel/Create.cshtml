@@ -1,39 +1,52 @@
 ﻿@model Lab8.Models.CarModel
 
 @{
-    ViewData["Title"] = (Model == null || Model.Id == 0) ? "Thêm Dòng Xe" : "Cập nhật Dòng Xe";
+    ViewData["Title"] = "Thêm Dòng Xe Mới";
 }
 
-<h1 class="mt-4 text-uppercase fw-bold">@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-6">
-        <div class="card mb-4 shadow">
-            <div class="card-header fw-bold bg-light">Thông tin chi tiết</div>
-            <div class="card-body">
-                <form asp-action="@(Model == null || Model.Id == 0 ? "Create" : "Edit")" method="post">
-                    <div asp-validation-summary="All" class="text-danger"></div>
+<div class="container-fluid px-4">
+    <h1 class="mt-4 text-uppercase fw-bold text-primary">@ViewData["Title"]</h1>
 
-                    @if (Model != null && Model.Id != 0)
-                    {
-                        <input type="hidden" asp-for="Id" />
-                    }
-
-                    <div class="mb-3">
-                        <label class="fw-bold">Tên Dòng Xe</label>
-                        <input name="Name" class="form-control" value="@(Model?.Name)" required />
+    <div class="card shadow mb-4 border-left-primary">
+        <div class="card-header py-3 bg-light">
+            <h6 class="m-0 font-weight-bold text-primary font-italic">
+                <i class="fas fa-info-circle me-1"></i> Nhập thông tin dòng xe mới
+            </h6>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="row">
+                    @* Tên dòng xe *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Tên Dòng Xe</label>
+                        <input type="text" name="Name" class="form-control" value="@Model?.Name" required placeholder="Ví dụ: Camry, Civic, Ranger..." />
+                        <span class="text-danger small" id="val-Name"></span>
                     </div>
 
-                    <div class="mb-3">
-                        <label class="fw-bold">Hãng Sản Xuất</label>
+                    @* Chọn Hãng Xe *@
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Thuộc Hãng Xe</label>
                         <select name="BrandId" class="form-select" asp-items="ViewBag.BrandId" required>
-                            <option value="">-- Chọn hãng xe --</option>
+                            <option value="">-- Chọn hãng sản xuất --</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-success px-4">Lưu ngay</button>
-                    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-                </form>
-            </div>
+                    @* Mô tả chi tiết *@
+                    <div class="col-md-12 mb-3">
+                        <label class="form-label fw-bold">Mô tả dòng xe / Đặc điểm phân khúc</label>
+                        <textarea name="ModelDescription" class="form-control" rows="5" placeholder="Nhập thông tin giới thiệu chung về dòng xe này...">@Model?.ModelDescription</textarea>
+                    </div>
+                </div>
+
+                <div class="mt-4 border-top pt-3">
+                    <button type="submit" class="btn btn-primary px-5 shadow">
+                        <i class="fas fa-save me-1"></i> LƯU DỮ LIỆU
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary px-4 ms-2">
+                        <i class="fas fa-arrow-left me-1"></i> HỦY BỎ
+                    </a>
+                </div>
+            </form>
         </div>
     </div>
 </div>

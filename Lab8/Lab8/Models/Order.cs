@@ -20,7 +20,7 @@ namespace Lab8.Models
         // THÊM DÒNG NÀY
         [Required]
         public decimal TotalAmount { get; set; }
-
+        public int Status { get; set; } = 0; // 0: Chờ, 1: Duyệt, 2: Hủy
         public string? Description { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }

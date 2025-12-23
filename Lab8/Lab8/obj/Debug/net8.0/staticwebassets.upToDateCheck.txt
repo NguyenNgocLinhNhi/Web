@@ -6,6 +6,9 @@ wwwroot\assets\img\error-404-monochrome.svg
 wwwroot\css\site.css
 wwwroot\css\styles.css
 wwwroot\favicon.ico
+wwwroot\images\cars\5ca07387-fd5f-4f21-a197-9847cf141bef.jpg
+wwwroot\images\cars\9abc9098-cc99-435c-849e-329e63047452.jpg
+wwwroot\images\cars\f663e392-0b16-41b8-8b6c-8381678bf81a.jpg
 wwwroot\js\datatables-simple-demo.js
 wwwroot\js\jquery-1.11.0.min.js
 wwwroot\js\plugins.js
@@ -69,3 +72,4 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\images\cars\a4e3d98f-b8b7-4f9f-b5c0-9b5d038f00e4.jpg
